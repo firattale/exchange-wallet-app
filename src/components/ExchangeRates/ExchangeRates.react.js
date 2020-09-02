@@ -1,15 +1,26 @@
 import React, { useEffect } from 'react'
 import './ExchangeRates.css';
-import getExchangeRates from "../../api/api"
+import { useSelector, useDispatch } from 'react-redux';
+import {
+    selectFirstCurrency,
+    selectSecondCurrency,
+    selectCurrencyRate,
+    selectFirstSign,
+    selectSecondSign,
+    changeCurrencyRateAsync
+} from '../../app/exchangeSlice';
 
 const ExchangeRates = (params) => {
+    const first = useSelector(selectFirstCurrency);
+    const second = useSelector(selectSecondCurrency);
+    const currencyRate = useSelector(selectCurrencyRate);
+    const firstSign = useSelector(selectFirstSign);
+    const secondSign = useSelector(selectSecondSign);
+    const dispatch = useDispatch();
     useEffect(() => {
-        getExchangeRates({ first: "GBP", second: "USD" })
-        setInterval(() => {
-            console.log("aaaa")
-        }, 1000);
-    }, [])
-    return <div className="exchange-container"><span className="currency">£</span>1= <span className="currency">$</span>1.4570</div>
+        dispatch(changeCurrencyRateAsync({ first, second }));
+    }, [dispatch, first, second])
+    return <div className="exchange-container"><span className="currency">{firstSign}</span>1= <span className="currency">{secondSign}</span>{currencyRate}</div>
 }
 
 export default ExchangeRates;
