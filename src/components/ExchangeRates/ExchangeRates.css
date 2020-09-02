@@ -1,0 +1,11 @@
+.exchange-container {
+    color: white;
+    background-color: #3762c7;
+    border: 1px solid #3c70e0;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+.currency {
+    font-size: 13px;
+}

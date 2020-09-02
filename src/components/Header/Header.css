@@ -1,0 +1,18 @@
+.header-container {
+    background-color: #387ad7;
+    height: 10%;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #3762c7; */
+}
+
+.header-button,
+.header-button:focus {
+    color: white;
+    background-color: #387ad7;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    outline: 1px #387ad7 solid;
+}
