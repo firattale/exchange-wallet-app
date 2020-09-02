@@ -6,15 +6,16 @@ import { changeFirstCurrency } from '../../app/exchangeSlice';
 
 const App = () => {
   const dispatch = useDispatch();
-  const handleClick = () => {
-    console.log("object")
-    return dispatch(changeFirstCurrency({ first: "EUR", firstSign: "€" }));
-  }
-
+  const handleClick = () => dispatch(changeFirstCurrency({ first: "EUR", firstSign: "€" }));
+  const handleClick2 = () => dispatch(changeFirstCurrency({ first: "USD", firstSign: "$" }));
+  const handleClick3= () => dispatch(changeFirstCurrency({ first: "GBP", firstSign: "£" }));
+  
   return (
     <div className="App">
       <Header />
-      <button onClick={handleClick}>change first currency</button>
+      <button onClick={handleClick}>change EUR</button>
+      <button onClick={handleClick2}>change USD</button>
+      <button onClick={handleClick3}>change GBP</button>
     </div>
   );
 }
