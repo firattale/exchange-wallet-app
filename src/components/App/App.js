@@ -10,13 +10,11 @@ import {
   changeFirstCurrency,
   selectCurrencyRate
 } from '../../app/exchangeSlice';
-import SecondWallet from '../Wallet/SecondWallet.react';
 import {
   selectedAmount,
   selectUsdWallet
 } from '../../app/walletSlice.js';
-
-import FirstWallet from '../Wallet/FirstWallet.react';
+import WalletContainer from '../WalletContainer/WalletContainer.react';
 
 const App = () => {
   const first = useSelector(selectFirstCurrency);
@@ -33,10 +31,9 @@ const App = () => {
   const handleClick3 = () => dispatch(changeFirstCurrency({ first: "GBP", firstSign: "£" }));
 
   return (
-    <div className="App">
-      <Header amount={amount} wallet={usdWallet}/>
-      <FirstWallet currency={first} sign={firstSign} />
-      <SecondWallet currency={second} sign={secondSign} amount={amount} currencyRate={currencyRate} />
+    <div className="h-100 w-100">
+      <Header amount={amount} wallet={usdWallet} />
+      <WalletContainer firstCurrency={first} firstSign={firstSign} secondCurrency={second} secondSign={secondSign} amount={amount} currencyRate={currencyRate} />
       {/* <button onClick={handleClick}>change EUR</button>
       <button onClick={handleClick2}>change USD</button>
       <button onClick={handleClick3}>change GBP</button> */}

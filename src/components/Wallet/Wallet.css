@@ -1,6 +1,6 @@
 .wallet-container {
     background-color: #3762c7;
-    height: 46vh;
+    height: 45%;
     padding: 50px;
 }
 
@@ -15,5 +15,31 @@
 
 .wallet-pocket {
     color: white;
-
 }
+
+.wallet-second-amount {
+    color: white;
+    font-size: 40px;
+}
+
+.wallet-input,
+.wallet-input:focus {
+    background-color: #387ad7;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+    border: 0;
+    outline: none;
+    text-align: right;
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    border-top: 20px solid #387ad7;
+  }

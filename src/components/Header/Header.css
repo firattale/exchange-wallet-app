@@ -1,6 +1,5 @@
 .header-container {
     background-color: #387ad7;
-    height: 10%;
     padding: 15px 15px;
     display: flex;
     justify-content: space-between;
@@ -17,4 +16,5 @@
 }
 .header-button:disabled {
     opacity: 0.5;
+    background-color: #387ad7;
 }
