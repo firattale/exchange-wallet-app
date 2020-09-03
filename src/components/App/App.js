@@ -23,7 +23,6 @@ const App = () => {
   const secondSign = useSelector(selectSecondSign);
   const amount = useSelector(selectedAmount);
   const currencyRate = useSelector(selectCurrencyRate);
-  const usdWallet = useSelector(selectUsdWallet);
 
   const dispatch = useDispatch();
   const handleClick = () => dispatch(changeFirstCurrency({ first: "EUR", firstSign: "€" }));
@@ -32,7 +31,7 @@ const App = () => {
 
   return (
     <div className="h-100 w-100">
-      <Header amount={amount} wallet={usdWallet} />
+      <Header amount={amount} firstCurrency={first} secondCurrency={second} currencyRate={currencyRate} />
       <WalletContainer firstCurrency={first} firstSign={firstSign} secondCurrency={second} secondSign={secondSign} amount={amount} currencyRate={currencyRate} />
       {/* <button onClick={handleClick}>change EUR</button>
       <button onClick={handleClick2}>change USD</button>

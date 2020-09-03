@@ -1,8 +1,6 @@
 import React from 'react'
 import "./Wallet.css"
-import {
-    changeSelectedAmount,
-} from '../../app/walletSlice.js';
+import { changeSelectedAmount } from '../../app/walletSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 
 const FirstWallet = ({ currency, sign }) => {

@@ -13,16 +13,16 @@ export const walletSlice = createSlice({
       const { selectedAmount } = action.payload
       state.selectedAmount = selectedAmount;
     },
-    changeSecondCurrency: (state, action) => {
-      state.firstCurrency = action.payload;
+    updateWallet: (state, action) => {
+      const { firstWalletType, firstAmount, secondWalletType, secondAmount } = action.payload
+      state[firstWalletType] = firstAmount;
+      state[secondWalletType] = secondAmount;
     },
-    changeCurrencyRate: (state, action) => {
-      state.currencyRate = action.payload;
-    },
+
   },
 });
 
-export const { changeSelectedAmount, changeSecondCurrency, changeCurrencyRate } = walletSlice.actions;
+export const { changeSelectedAmount, updateWallet } = walletSlice.actions;
 
 export const selectedAmount = state => state.wallet.selectedAmount;
 export const selectUsdWallet = state => state.wallet.usdWallet;
