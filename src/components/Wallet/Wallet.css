@@ -1,7 +1,7 @@
 .wallet-container {
     background-color: #3762c7;
-    height: 45%;
-    padding: 50px;
+    height: auto;
+    padding: 50px 20px;
 }
 
 .background {
@@ -20,6 +20,7 @@
 .wallet-second-amount {
     color: white;
     font-size: 40px;
+    line-height: 70px;
 }
 
 .wallet-input,
@@ -34,12 +35,12 @@
 }
 
 .arrow-down {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     position: absolute;
     left: 50%;
     margin-left: -20px;
     border-top: 20px solid #387ad7;
-  }
+}

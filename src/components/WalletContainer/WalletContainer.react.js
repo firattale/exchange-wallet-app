@@ -5,7 +5,7 @@ const WalletContainer = ({ firstCurrency, secondCurrency, firstSign, secondSign,
     return (
         <div className="">
             <FirstWallet currency={firstCurrency} sign={firstSign} />
-            <SecondWallet currency={secondCurrency} sign={secondSign} amount={amount} currencyRate={currencyRate} />
+            <SecondWallet currency={secondCurrency} firstSign={firstSign} secondSign={secondSign} amount={amount} currencyRate={currencyRate} />
         </div>
     )
 }

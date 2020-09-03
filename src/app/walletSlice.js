@@ -3,11 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const walletSlice = createSlice({
   name: 'wallet',
   initialState: {
-    usdWallet: 50.00,
-    poundWallet: 50.00,
-    eurWallet: 50.00,
+    USD: 40.00,
+    GBP: 50.00,
+    EUR: 60.00,
     selectedAmount: 0,
-    secondSign: "$"
   },
   reducers: {
     changeSelectedAmount: (state, action) => {

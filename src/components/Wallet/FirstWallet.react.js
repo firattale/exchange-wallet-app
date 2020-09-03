@@ -5,9 +5,9 @@ import {
 } from '../../app/walletSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 
-const FirstWallet = ({ background, currency, sign }) => {
+const FirstWallet = ({ currency, sign }) => {
     const dispatch = useDispatch();
-
+    const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const handleChange = (value) => {
         dispatch(changeSelectedAmount({ selectedAmount: value }))
     }
@@ -20,11 +20,11 @@ const FirstWallet = ({ background, currency, sign }) => {
                         <input type="number" className="wallet-input" onChange={e => handleChange(e.target.value)} />
                     </div>
                     <div>
-                        <div className="wallet-pocket">You Have {sign}50.00</div>
+                        <div className="wallet-pocket">You Have {sign}{walletAmount}</div>
                     </div>
                 </div>
             </div>
-            <div class="arrow-down"></div>
+            <div className="arrow-down"></div>
         </>
     )
 }
