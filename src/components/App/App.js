@@ -10,15 +10,12 @@ import {
   changeFirstCurrency,
   selectCurrencyRate
 } from '../../app/exchangeSlice';
-import {
-  selectedAmount,
-  selectUsdWallet
-} from '../../app/walletSlice.js';
+import { selectedAmount } from '../../app/walletSlice.js';
 import WalletContainer from '../WalletContainer/WalletContainer.react';
 
 const App = () => {
-  const first = useSelector(selectFirstCurrency);
-  const second = useSelector(selectSecondCurrency);
+  const firstCurrency = useSelector(selectFirstCurrency);
+  const secondCurrency = useSelector(selectSecondCurrency);
   const firstSign = useSelector(selectFirstSign);
   const secondSign = useSelector(selectSecondSign);
   const amount = useSelector(selectedAmount);
@@ -31,8 +28,8 @@ const App = () => {
 
   return (
     <div className="h-100 w-100">
-      <Header amount={amount} firstCurrency={first} secondCurrency={second} currencyRate={currencyRate} />
-      <WalletContainer firstCurrency={first} firstSign={firstSign} secondCurrency={second} secondSign={secondSign} amount={amount} currencyRate={currencyRate} />
+      <Header selectedAmount={amount} firstCurrency={firstCurrency} secondCurrency={secondCurrency} currencyRate={currencyRate} />
+      <WalletContainer firstCurrency={firstCurrency} firstSign={firstSign} secondCurrency={secondCurrency} secondSign={secondSign} amount={amount} currencyRate={currencyRate} />
       {/* <button onClick={handleClick}>change EUR</button>
       <button onClick={handleClick2}>change USD</button>
       <button onClick={handleClick3}>change GBP</button> */}

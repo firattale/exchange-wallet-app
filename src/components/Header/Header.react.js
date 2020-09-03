@@ -5,24 +5,19 @@ import { Button } from 'reactstrap';
 import { updateWallet } from '../../app/walletSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 
-const Header = ({ amount, firstCurrency, secondCurrency, currencyRate }) => {
+const Header = ({ selectedAmount, firstCurrency, secondCurrency, currencyRate }) => {
     const firstWalletAmount = useSelector(state => state.wallet[firstCurrency].toFixed(2))
     const secondWalletAmount = useSelector(state => state.wallet[secondCurrency].toFixed(2))
-    const isDisabled = +amount > firstWalletAmount
+    const isDisabled = +selectedAmount > firstWalletAmount
     const dispatch = useDispatch();
 
     const handleExchange = () => {
         dispatch(updateWallet({
             firstWalletType: firstCurrency,
             secondWalletType: secondCurrency,
-            firstAmount: +firstWalletAmount - amount,
-            secondAmount: +secondWalletAmount + +(amount * currencyRate).toFixed(2)
+            firstAmount: +firstWalletAmount - selectedAmount,
+            secondAmount: +secondWalletAmount + +(selectedAmount * currencyRate).toFixed(2),
         }))
-        console.log('firstCurrency', firstCurrency)
-        console.log('firstWalletAmount', +firstWalletAmount - amount)
-        console.log('secondCurrency', secondCurrency)
-        console.log('firstAmount', typeof +amount)
-        console.log("second", typeof +(amount * currencyRate).toFixed(2))
     }
     return (
         <div className="header-container">

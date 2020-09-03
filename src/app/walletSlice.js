@@ -6,7 +6,7 @@ export const walletSlice = createSlice({
     USD: 40.00,
     GBP: 50.00,
     EUR: 60.00,
-    selectedAmount: 0,
+    selectedAmount: "",
   },
   reducers: {
     changeSelectedAmount: (state, action) => {
@@ -17,6 +17,7 @@ export const walletSlice = createSlice({
       const { firstWalletType, firstAmount, secondWalletType, secondAmount } = action.payload
       state[firstWalletType] = firstAmount;
       state[secondWalletType] = secondAmount;
+      state.selectedAmount = ""
     },
 
   },
