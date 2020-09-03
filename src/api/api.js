@@ -1,7 +1,19 @@
 import { API_URL } from '../constants';
+import { changeCurrencyRate } from '../app/exchangeSlice';
 
-const getExchangeRates = ({ first, second }) => {
+export const getRates = (payload, dispatch) => {
+  const { first, second } = payload
   const url = `${API_URL}/latest?base=${first}&symbols=${second}`;
-  return fetch(url).then(response => response.json());
-};
-export default getExchangeRates;
+  
+  return fetch(url)
+    .then(response => response.json())
+    .then((res) => {
+      if (res.error) {
+        throw new Error("There is something wrong with your request. Please try again!")
+      }
+      dispatch(changeCurrencyRate(res.rates[second].toFixed(4)))
+    })
+    .catch(err => {
+      alert(err)
+    })
+}

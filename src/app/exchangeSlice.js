@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { clearAllIntervals, getRates } from '../helper'
+import { clearAllIntervals } from '../helper'
+import { getRates } from '../api/api'
 
 export const exchangeSlice = createSlice({
   name: 'exchange',

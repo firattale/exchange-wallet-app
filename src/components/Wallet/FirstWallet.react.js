@@ -21,7 +21,7 @@ const FirstWallet = ({ currency, sign, secondCurrency }) => {
         <>
             <div className="wallet-container background" >
                 <div className="d-flex flex-column justify-content-between h-100">
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between align-items-center">
                         <Input type="select" name="select" className="wallet-currency background" defaultValue={currency} onChange={e => handleCurrencyChange(e.target.value)}>
                             <option>GBP</option>
                             <option>USD</option>

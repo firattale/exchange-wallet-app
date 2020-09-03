@@ -19,7 +19,7 @@ const SecondWallet = ({ firstSign, currency, secondSign, selectedAmount, currenc
     const reversedCurrencyRate = (1 / currencyRate).toFixed(2)
     return <div className="wallet-container">
         <div className="d-flex flex-column justify-content-between h-100">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-center">
                 <Input type="select" name="select" className="wallet-currency-second" defaultValue={currency} onChange={e => handleCurrencyChange(e.target.value)}>
                     <option>GBP</option>
                     <option>USD</option>
