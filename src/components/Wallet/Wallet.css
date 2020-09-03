@@ -1,4 +1,19 @@
 .wallet-container {
     background-color: #3762c7;
-    height: 50vh;
+    height: 46vh;
+    padding: 50px;
+}
+
+.background {
+    background-color: #387ad7;
+}
+
+.wallet-currency {
+    color: white;
+    font-size: 50px;
+}
+
+.wallet-pocket {
+    color: white;
+
 }

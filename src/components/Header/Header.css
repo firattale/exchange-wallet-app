@@ -15,3 +15,6 @@
     font-size: 16px;
     outline: 1px #387ad7 solid;
 }
+.header-button:disabled {
+    opacity: 0.5;
+}
