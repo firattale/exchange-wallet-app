@@ -6,10 +6,10 @@ import { changeSecondCurrency } from '../../app/exchangeSlice';
 import { changeSelectedAmount } from '../../app/walletSlice';
 import { currencySigns } from "../../constants";
 
-const SecondWallet = ({ firstSign, currency, secondSign, amount, currencyRate }) => {
+const SecondWallet = ({ firstSign, currency, secondSign, selectedAmount, currencyRate }) => {
     const dispatch = useDispatch();
 
-    const secondAmount = (amount * currencyRate).toFixed(2)
+    const secondAmount = (selectedAmount * currencyRate).toFixed(2)
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const handleCurrencyChange = value => {
         dispatch(changeSecondCurrency({ second: value, secondSign: currencySigns[value] }));
