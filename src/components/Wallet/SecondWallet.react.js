@@ -3,6 +3,7 @@ import "./Wallet.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { changeSecondCurrency } from '../../app/exchangeSlice';
+import { changeSelectedAmount } from '../../app/walletSlice';
 import { currencySigns } from "../../constants";
 
 const SecondWallet = ({ firstSign, currency, secondSign, amount, currencyRate }) => {
@@ -12,6 +13,8 @@ const SecondWallet = ({ firstSign, currency, secondSign, amount, currencyRate })
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const handleCurrencyChange = value => {
         dispatch(changeSecondCurrency({ second: value, secondSign: currencySigns[value] }));
+        dispatch(changeSelectedAmount({ selectedAmount: "" }));
+
     }
     const reversedCurrencyRate = (1 / currencyRate).toFixed(2)
     return <div className="wallet-container">

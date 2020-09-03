@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { currencySigns } from "../../constants";
 
-const FirstWallet = ({ currency, sign }) => {
+const FirstWallet = ({ currency, sign, secondCurrency }) => {
     const dispatch = useDispatch();
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const amount = useSelector(selectedAmount);
     const handleCurrencyChange = value => {
         dispatch(changeFirstCurrency({ first: value, firstSign: currencySigns[value] }));
+        dispatch(changeSelectedAmount({ selectedAmount: "" }));
     }
     const handleChange = (value) => {
         dispatch(changeSelectedAmount({ selectedAmount: value }))
@@ -26,7 +27,7 @@ const FirstWallet = ({ currency, sign }) => {
                             <option>USD</option>
                             <option>EUR</option>
                         </Input>
-                        <input type="number" className="wallet-input" value={amount} onChange={e => handleChange(e.target.value)} />
+                        <Input type="number" className="wallet-input" value={amount} onChange={e => handleChange(e.target.value)} disabled={currency === secondCurrency} min="0" />
                     </div>
                     <div>
                         <div className="wallet-pocket">You Have {sign}{walletAmount}</div>

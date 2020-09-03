@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 const Header = ({ selectedAmount, firstCurrency, secondCurrency, currencyRate }) => {
     const firstWalletAmount = useSelector(state => state.wallet[firstCurrency].toFixed(2));
     const secondWalletAmount = useSelector(state => state.wallet[secondCurrency].toFixed(2));
-    const isDisabled = +selectedAmount > firstWalletAmount || selectedAmount === "";
+    const isDisabled = +selectedAmount > firstWalletAmount || selectedAmount === "" || firstCurrency === secondCurrency;
     const dispatch = useDispatch();
 
     const handleExchange = () => {

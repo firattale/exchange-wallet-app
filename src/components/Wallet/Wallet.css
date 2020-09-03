@@ -40,10 +40,11 @@
 }
 
 .wallet-input,
+.wallet-input:disabled,
 .wallet-input:focus {
     background-color: #387ad7;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     width: 100%;
     border: 0;
     outline: none;
