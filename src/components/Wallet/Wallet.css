@@ -1,6 +1,10 @@
+.wallets-container {
+    height: calc(100% - 70px);
+}
+
 .wallet-container {
     background-color: #3762c7;
-    height: auto;
+    height: 50%;
     padding: 50px 20px;
 }
 

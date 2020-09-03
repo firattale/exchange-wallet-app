@@ -6,9 +6,9 @@ import { updateWallet } from '../../app/walletSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Header = ({ selectedAmount, firstCurrency, secondCurrency, currencyRate }) => {
-    const firstWalletAmount = useSelector(state => state.wallet[firstCurrency].toFixed(2))
-    const secondWalletAmount = useSelector(state => state.wallet[secondCurrency].toFixed(2))
-    const isDisabled = +selectedAmount > firstWalletAmount
+    const firstWalletAmount = useSelector(state => state.wallet[firstCurrency].toFixed(2));
+    const secondWalletAmount = useSelector(state => state.wallet[secondCurrency].toFixed(2));
+    const isDisabled = +selectedAmount > firstWalletAmount || selectedAmount === "";
     const dispatch = useDispatch();
 
     const handleExchange = () => {

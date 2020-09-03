@@ -26,7 +26,6 @@ const FirstWallet = ({ currency, sign }) => {
                             <option>USD</option>
                             <option>EUR</option>
                         </Input>
-                        {/* <div className="wallet-currency">{currency}</div> */}
                         <input type="number" className="wallet-input" value={amount} onChange={e => handleChange(e.target.value)} />
                     </div>
                     <div>

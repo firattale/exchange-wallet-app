@@ -6,13 +6,15 @@
 }
 
 .header-button,
+.header-button:hover, 
+.header-button:active, 
 .header-button:focus {
     color: white;
-    background-color: #387ad7;
+    background-color: #387ad7 !important;
     border: 0;
     cursor: pointer;
     font-size: 16px;
-    outline: 1px #387ad7 solid;
+    outline: none !important;
 }
 .header-button:disabled {
     opacity: 0.5;
