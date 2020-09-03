@@ -17,7 +17,9 @@ export const exchangeSlice = createSlice({
       state.firstSign = firstSign;
     },
     changeSecondCurrency: (state, action) => {
-      state.firstCurrency = action.payload;
+      const { second, secondSign } = action.payload
+      state.secondCurrency = second;
+      state.secondSign = secondSign;
     },
     changeCurrencyRate: (state, action) => {
       state.currencyRate = action.payload;

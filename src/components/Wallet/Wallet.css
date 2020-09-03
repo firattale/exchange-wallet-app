@@ -8,9 +8,21 @@
     background-color: #387ad7;
 }
 
-.wallet-currency {
+.wallet-currency,
+.wallet-currency:focus {
     color: white;
     font-size: 50px;
+    background-color: #387ad7;
+    border: none;
+}
+
+.wallet-currency-second,
+.wallet-currency-second:focus {
+    color: white;
+    font-size: 50px;
+    background-color: #3762c7;
+    border: none;
+    width: 50%;
 }
 
 .wallet-pocket {
