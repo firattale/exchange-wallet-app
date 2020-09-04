@@ -9,7 +9,7 @@ import {
   selectSecondSign,
   selectCurrencyRate
 } from '../../app/exchangeSlice';
-import { selectedAmount } from '../../app/walletSlice.js';
+import { selectFirstAmount } from '../../app/walletSlice.js';
 import FirstWallet from '../Wallet/FirstWallet.react';
 import SecondWallet from '../Wallet/SecondWallet.react';
 
@@ -18,15 +18,15 @@ const App = () => {
   const secondCurrency = useSelector(selectSecondCurrency);
   const firstSign = useSelector(selectFirstSign);
   const secondSign = useSelector(selectSecondSign);
-  const amount = useSelector(selectedAmount);
+  const firstAmount = useSelector(selectFirstAmount);
   const currencyRate = useSelector(selectCurrencyRate);
 
   return (
     <div className="h-100 w-100">
-      <Header selectedAmount={amount} firstCurrency={firstCurrency} secondCurrency={secondCurrency} currencyRate={currencyRate} />
+      <Header firstAmount={firstAmount} firstCurrency={firstCurrency} secondCurrency={secondCurrency} currencyRate={currencyRate} />
       <div className="wallets-container">
-        <FirstWallet currency={firstCurrency} secondCurrency={secondCurrency} sign={firstSign} />
-        <SecondWallet currency={secondCurrency} firstSign={firstSign} secondSign={secondSign} selectedAmount={amount} currencyRate={currencyRate} />
+        <FirstWallet currency={firstCurrency} secondCurrency={secondCurrency} sign={firstSign} currencyRate={currencyRate} />
+        <SecondWallet currency={secondCurrency} firstCurrency={firstCurrency} firstSign={firstSign} secondSign={secondSign} firstAmount={firstAmount} currencyRate={currencyRate} />
       </div>
     </div>
   );

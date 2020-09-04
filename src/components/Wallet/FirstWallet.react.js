@@ -1,25 +1,27 @@
 import React from 'react'
 import "./Wallet.css"
-import { changeSelectedAmount, selectedAmount, selectFirstWalletError } from '../../app/walletSlice.js';
+import { changeFirstAmount, selectFirstAmount, selectFirstWalletError, changeSecondAmount } from '../../app/walletSlice.js';
 import { changeFirstCurrency } from '../../app/exchangeSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { currencySigns } from "../../constants";
 import { decimalValidation } from '../../helper'
 
-const FirstWallet = ({ currency, sign, secondCurrency }) => {
+const FirstWallet = ({ currency, sign, secondCurrency, currencyRate }) => {
     const dispatch = useDispatch();
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
-    const amount = useSelector(selectedAmount);
+    const firstAmount = useSelector(selectFirstAmount);
     const error = useSelector(selectFirstWalletError);
     const handleCurrencyChange = value => {
         dispatch(changeFirstCurrency({ first: value, firstSign: currencySigns[value] }));
-        dispatch(changeSelectedAmount({ selectedAmount: "" }));
+        dispatch(changeFirstAmount({ firstAmount: "" }));
+        dispatch(changeSecondAmount({ secondAmount: "" }));
     }
 
     const handleChange = (value) => {
         decimalValidation(value, dispatch)
-        dispatch(changeSelectedAmount({ selectedAmount: value }))
+        dispatch(changeFirstAmount({ firstAmount: value }))
+        dispatch(changeSecondAmount({ secondAmount: (value * currencyRate).toFixed(2) }))
     }
     return (
         <>
@@ -31,7 +33,7 @@ const FirstWallet = ({ currency, sign, secondCurrency }) => {
                             <option>USD</option>
                             <option>EUR</option>
                         </Input>
-                        <Input type="number" className="wallet-input" value={amount} onChange={e => handleChange(e.target.value)} disabled={currency === secondCurrency} min="0" />
+                        <Input type="number" className="wallet-input" value={firstAmount} onChange={e => handleChange(e.target.value)} disabled={currency === secondCurrency} min="0" />
                     </div>
                     {error && <p className="wallet-error-message">{error}</p>}
                     <div>

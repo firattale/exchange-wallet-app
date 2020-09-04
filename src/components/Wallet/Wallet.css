@@ -26,7 +26,6 @@
     font-size: 50px;
     background-color: #3762c7;
     border: none;
-    width: 50%;
 }
 
 .wallet-pocket {
@@ -49,6 +48,20 @@
     border: 0;
     outline: none;
     text-align: right;
+    box-shadow: none;
+}
+
+.wallet-input-second,
+.wallet-input-second:disabled,
+.wallet-input-second:focus {
+    background-color: #3762c7;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    border: 0;
+    outline: none;
+    text-align: right;
+    box-shadow: none;
 }
 
 .arrow-down {

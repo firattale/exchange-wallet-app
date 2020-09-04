@@ -6,13 +6,18 @@ export const walletSlice = createSlice({
     USD: 40.00,
     GBP: 50.00,
     EUR: 60.00,
-    selectedAmount: "",
+    firstAmount: "",
+    secondAmount: "",
     firstWalletError: null
   },
   reducers: {
-    changeSelectedAmount: (state, action) => {
-      const { selectedAmount } = action.payload
-      state.selectedAmount = selectedAmount;
+    changeFirstAmount: (state, action) => {
+      const { firstAmount } = action.payload
+      state.firstAmount = firstAmount;
+    },
+    changeSecondAmount: (state, action) => {
+      const { secondAmount } = action.payload
+      state.secondAmount = secondAmount;
     },
     checkFirstWalletError: (state, action) => {
       const { error } = action.payload
@@ -22,16 +27,17 @@ export const walletSlice = createSlice({
       const { firstWalletType, firstAmount, secondWalletType, secondAmount } = action.payload
       state[firstWalletType] = firstAmount;
       state[secondWalletType] = secondAmount;
-      state.selectedAmount = ""
+      state.firstAmount = ""
+      state.secondAmount = ""
     },
 
   },
 });
 
-export const { changeSelectedAmount, updateWallet, checkFirstWalletError } = walletSlice.actions;
+export const { changeFirstAmount, changeSecondAmount, updateWallet, checkFirstWalletError } = walletSlice.actions;
 
-export const selectedAmount = state => state.wallet.selectedAmount;
-export const selectUsdWallet = state => state.wallet.usdWallet;
+export const selectFirstAmount = state => state.wallet.firstAmount;
+export const selectSecondAmount = state => state.wallet.secondAmount;
 export const selectFirstWalletError = state => state.wallet.firstWalletError;
 
 export default walletSlice.reducer;

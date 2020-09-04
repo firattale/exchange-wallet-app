@@ -3,20 +3,27 @@ import "./Wallet.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { changeSecondCurrency } from '../../app/exchangeSlice';
-import { changeSelectedAmount } from '../../app/walletSlice';
+import { changeFirstAmount,changeSecondAmount, selectSecondAmount} from '../../app/walletSlice';
 import { currencySigns } from "../../constants";
+import { decimalValidation } from '../../helper'
 
-const SecondWallet = ({ firstSign, currency, secondSign, selectedAmount, currencyRate }) => {
+const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, firstAmount, currencyRate }) => {
     const dispatch = useDispatch();
-
-    const secondAmount = (selectedAmount * currencyRate).toFixed(2)
+    const secondAmount = useSelector(selectSecondAmount);
+    const reversedCurrencyRate = (1 / currencyRate).toFixed(2)
+    // const secondAmount = (firstAmount * currencyRate).toFixed(2)
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const handleCurrencyChange = value => {
         dispatch(changeSecondCurrency({ second: value, secondSign: currencySigns[value] }));
-        dispatch(changeSelectedAmount({ selectedAmount: "" }));
-
+        dispatch(changeFirstAmount({ firstAmount: "" }));
+        dispatch(changeSecondAmount({ secondAmount: "" }));
     }
-    const reversedCurrencyRate = (1 / currencyRate).toFixed(2)
+    const handleChange = (value) => {
+        const calculatedAmount = value * (1 / currencyRate)
+        decimalValidation(value, dispatch)
+        dispatch(changeFirstAmount({ firstAmount: calculatedAmount.toFixed(2) }))
+        dispatch(changeSecondAmount({ secondAmount: value }))
+    }
     return <div className="wallet-container">
         <div className="d-flex flex-column justify-content-between h-100">
             <div className="d-flex justify-content-between align-items-center">
@@ -25,7 +32,9 @@ const SecondWallet = ({ firstSign, currency, secondSign, selectedAmount, currenc
                     <option>USD</option>
                     <option>EUR</option>
                 </Input>
-                <div className="wallet-second-amount">{secondAmount > 0 && `+${secondAmount}`}</div>
+                <Input type="number" className="wallet-input-second" value={secondAmount} onChange={e => handleChange(e.target.value)} disabled={currency === firstCurrency} min="0" />
+
+                {/* <div className="wallet-second-amount">{secondAmount > 0 && `+${secondAmount}`}</div> */}
             </div>
             <div className="d-flex justify-content-between">
                 <div className="wallet-pocket">You Have {secondSign}{walletAmount}</div>
