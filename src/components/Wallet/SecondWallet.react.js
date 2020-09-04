@@ -7,11 +7,11 @@ import { changeFirstAmount,changeSecondAmount, selectSecondAmount} from '../../a
 import { currencySigns } from "../../constants";
 import { decimalValidation } from '../../helper'
 
-const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, firstAmount, currencyRate }) => {
+// Making a generic Wallet component gets really messy, that's why I decided to use two wallets
+const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, currencyRate }) => {
     const dispatch = useDispatch();
     const secondAmount = useSelector(selectSecondAmount);
     const reversedCurrencyRate = (1 / currencyRate).toFixed(2)
-    // const secondAmount = (firstAmount * currencyRate).toFixed(2)
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const handleCurrencyChange = value => {
         dispatch(changeSecondCurrency({ second: value, secondSign: currencySigns[value] }));
@@ -34,7 +34,6 @@ const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, firstAmo
                 </Input>
                 <Input type="number" className="wallet-input-second" value={secondAmount} onChange={e => handleChange(e.target.value)} disabled={currency === firstCurrency} min="0" />
 
-                {/* <div className="wallet-second-amount">{secondAmount > 0 && `+${secondAmount}`}</div> */}
             </div>
             <div className="d-flex justify-content-between">
                 <div className="wallet-pocket">You Have {secondSign}{walletAmount}</div>

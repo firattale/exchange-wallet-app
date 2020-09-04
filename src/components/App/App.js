@@ -25,8 +25,8 @@ const App = () => {
     <div className="h-100 w-100">
       <Header firstAmount={firstAmount} firstCurrency={firstCurrency} secondCurrency={secondCurrency} currencyRate={currencyRate} />
       <div className="wallets-container">
-        <FirstWallet currency={firstCurrency} secondCurrency={secondCurrency} sign={firstSign} currencyRate={currencyRate} />
-        <SecondWallet currency={secondCurrency} firstCurrency={firstCurrency} firstSign={firstSign} secondSign={secondSign} firstAmount={firstAmount} currencyRate={currencyRate} />
+        <FirstWallet currency={firstCurrency} firstAmount={firstAmount} secondCurrency={secondCurrency} sign={firstSign} currencyRate={currencyRate} />
+        <SecondWallet currency={secondCurrency} firstCurrency={firstCurrency} firstSign={firstSign} secondSign={secondSign} currencyRate={currencyRate} />
       </div>
     </div>
   );

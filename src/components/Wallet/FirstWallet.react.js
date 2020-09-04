@@ -1,16 +1,15 @@
 import React from 'react'
 import "./Wallet.css"
-import { changeFirstAmount, selectFirstAmount, selectFirstWalletError, changeSecondAmount } from '../../app/walletSlice.js';
+import { changeFirstAmount, selectFirstWalletError, changeSecondAmount } from '../../app/walletSlice.js';
 import { changeFirstCurrency } from '../../app/exchangeSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { currencySigns } from "../../constants";
 import { decimalValidation } from '../../helper'
-
-const FirstWallet = ({ currency, sign, secondCurrency, currencyRate }) => {
+// Making a generic Wallet component gets really messy, that's why I decided to use two wallets
+const FirstWallet = ({ currency, sign, secondCurrency, currencyRate, firstAmount }) => {
     const dispatch = useDispatch();
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
-    const firstAmount = useSelector(selectFirstAmount);
     const error = useSelector(selectFirstWalletError);
     const handleCurrencyChange = value => {
         dispatch(changeFirstCurrency({ first: value, firstSign: currencySigns[value] }));
