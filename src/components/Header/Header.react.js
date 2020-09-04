@@ -2,13 +2,15 @@ import React from 'react'
 import './Header.css';
 import ExchangeRates from '../ExchangeRates/ExchangeRates.react'
 import { Button } from 'reactstrap';
-import { updateWallet } from '../../app/walletSlice.js';
+import { updateWallet, selectFirstWalletError } from '../../app/walletSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Header = ({ selectedAmount, firstCurrency, secondCurrency, currencyRate }) => {
     const firstWalletAmount = useSelector(state => state.wallet[firstCurrency].toFixed(2));
     const secondWalletAmount = useSelector(state => state.wallet[secondCurrency].toFixed(2));
-    const isDisabled = +selectedAmount > firstWalletAmount || selectedAmount === "" || firstCurrency === secondCurrency;
+    const error = useSelector(selectFirstWalletError);
+
+    const isDisabled = +selectedAmount > firstWalletAmount || selectedAmount === "" || firstCurrency === secondCurrency || error;
     const dispatch = useDispatch();
 
     const handleExchange = () => {

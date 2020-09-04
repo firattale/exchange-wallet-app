@@ -1,20 +1,25 @@
 import React from 'react'
 import "./Wallet.css"
-import { changeSelectedAmount, selectedAmount } from '../../app/walletSlice.js';
+import { changeSelectedAmount, selectedAmount, selectFirstWalletError } from '../../app/walletSlice.js';
 import { changeFirstCurrency } from '../../app/exchangeSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { currencySigns } from "../../constants";
+import { decimalValidation } from '../../helper'
 
 const FirstWallet = ({ currency, sign, secondCurrency }) => {
     const dispatch = useDispatch();
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const amount = useSelector(selectedAmount);
+    const error = useSelector(selectFirstWalletError);
     const handleCurrencyChange = value => {
         dispatch(changeFirstCurrency({ first: value, firstSign: currencySigns[value] }));
         dispatch(changeSelectedAmount({ selectedAmount: "" }));
     }
+
+
     const handleChange = (value) => {
+        decimalValidation(value, dispatch)
         dispatch(changeSelectedAmount({ selectedAmount: value }))
     }
     return (
@@ -29,6 +34,7 @@ const FirstWallet = ({ currency, sign, secondCurrency }) => {
                         </Input>
                         <Input type="number" className="wallet-input" value={amount} onChange={e => handleChange(e.target.value)} disabled={currency === secondCurrency} min="0" />
                     </div>
+                    {error && <p className="wallet-error-message">{error}</p>}
                     <div>
                         <div className="wallet-pocket">You Have {sign}{walletAmount}</div>
                     </div>

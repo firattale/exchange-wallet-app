@@ -61,3 +61,11 @@
     margin-left: -20px;
     border-top: 20px solid #387ad7;
 }
+
+.wallet-error-message {
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 13px;
+}
