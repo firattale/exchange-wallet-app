@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "40c3765af5b5f46313c02db0878f84eb",
+    "revision": "b7e6ef9f65aa0013fad2f2f62dd0d02e",
     "url": "/revolut-app/index.html"
   },
   {
