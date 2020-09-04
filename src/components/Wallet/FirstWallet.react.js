@@ -17,7 +17,6 @@ const FirstWallet = ({ currency, sign, secondCurrency }) => {
         dispatch(changeSelectedAmount({ selectedAmount: "" }));
     }
 
-
     const handleChange = (value) => {
         decimalValidation(value, dispatch)
         dispatch(changeSelectedAmount({ selectedAmount: value }))

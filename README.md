@@ -1,2 +1,2 @@
-# revolut-app
+# Revolut
 Revolut Exchange Screen

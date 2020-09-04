@@ -6,8 +6,8 @@
 }
 
 .header-button,
-.header-button:hover, 
-.header-button:active, 
+.header-button:hover,
+.header-button:active,
 .header-button:focus {
     color: white;
     background-color: #387ad7 !important;
@@ -16,6 +16,7 @@
     font-size: 16px;
     outline: none !important;
 }
+
 .header-button:disabled {
     opacity: 0.5;
     background-color: #387ad7;
