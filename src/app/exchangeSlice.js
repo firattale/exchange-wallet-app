@@ -2,15 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import { clearAllIntervals } from '../helper'
 import { getRates } from '../api/api'
 
+export const initialState = {
+  firstCurrency: "GBP",
+  firstSign: "£",
+  secondCurrency: "USD",
+  currencyRate: "",
+  secondSign: "$"
+}
 export const exchangeSlice = createSlice({
   name: 'exchange',
-  initialState: {
-    firstCurrency: "GBP",
-    firstSign: "£",
-    secondCurrency: "USD",
-    currencyRate: "",
-    secondSign: "$"
-  },
+  initialState,
   reducers: {
     changeFirstCurrency: (state, action) => {
       const { first, firstSign } = action.payload

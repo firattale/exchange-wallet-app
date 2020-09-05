@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+export const initialState = {
+  USD: 40.00,
+  GBP: 50.00,
+  EUR: 60.00,
+  firstAmount: "",
+  secondAmount: "",
+  firstWalletError: null
+}
 export const walletSlice = createSlice({
   name: 'wallet',
-  initialState: {
-    USD: 40.00,
-    GBP: 50.00,
-    EUR: 60.00,
-    firstAmount: "",
-    secondAmount: "",
-    firstWalletError: null
-  },
+  initialState,
   reducers: {
     changeFirstAmount: (state, action) => {
       const { firstAmount } = action.payload
@@ -30,7 +30,6 @@ export const walletSlice = createSlice({
       state.firstAmount = ""
       state.secondAmount = ""
     },
-
   },
 });
 
