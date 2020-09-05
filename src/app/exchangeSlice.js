@@ -34,12 +34,10 @@ export const { changeFirstCurrency, changeSecondCurrency, changeCurrencyRate } =
 export const changeCurrencyRateAsync = (payload) => dispatch => {
   clearAllIntervals()
   getRates(payload, dispatch);
-  // setInterval(() => {
-  //   getRates(payload, dispatch);
-  // }, 10000);
+  setInterval(() => {
+    getRates(payload, dispatch);
+  }, 10000);
 };
-
-
 
 export const selectFirstCurrency = state => state.exchange.firstCurrency;
 export const selectSecondCurrency = state => state.exchange.secondCurrency;
