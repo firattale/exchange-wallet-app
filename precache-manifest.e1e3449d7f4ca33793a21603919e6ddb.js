@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b7e6ef9f65aa0013fad2f2f62dd0d02e",
+    "revision": "890d7afafbd77668c43e06111a38f249",
     "url": "/revolut-app/index.html"
   },
   {
-    "revision": "d2a13a08821493f813e4",
-    "url": "/revolut-app/static/css/main.b73309c9.chunk.css"
+    "revision": "7708382002dc728c8a81",
+    "url": "/revolut-app/static/css/main.fea8870e.chunk.css"
   },
   {
     "revision": "9f94648d8398ad729fa7",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/revolut-app/static/js/2.343d6aed.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2a13a08821493f813e4",
-    "url": "/revolut-app/static/js/main.c91ebcc1.chunk.js"
+    "revision": "7708382002dc728c8a81",
+    "url": "/revolut-app/static/js/main.edff0471.chunk.js"
   },
   {
     "revision": "cee282c2d2a3363bd9df",

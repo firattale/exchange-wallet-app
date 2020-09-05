@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/revolut-app/static/css/main.b73309c9.chunk.css",
-    "main.js": "/revolut-app/static/js/main.c91ebcc1.chunk.js",
-    "main.js.map": "/revolut-app/static/js/main.c91ebcc1.chunk.js.map",
+    "main.css": "/revolut-app/static/css/main.fea8870e.chunk.css",
+    "main.js": "/revolut-app/static/js/main.edff0471.chunk.js",
+    "main.js.map": "/revolut-app/static/js/main.edff0471.chunk.js.map",
     "runtime-main.js": "/revolut-app/static/js/runtime-main.8d99ff33.js",
     "runtime-main.js.map": "/revolut-app/static/js/runtime-main.8d99ff33.js.map",
     "static/js/2.343d6aed.chunk.js": "/revolut-app/static/js/2.343d6aed.chunk.js",
     "static/js/2.343d6aed.chunk.js.map": "/revolut-app/static/js/2.343d6aed.chunk.js.map",
     "index.html": "/revolut-app/index.html",
-    "precache-manifest.afc3edc713f32fd0136b17f32020571d.js": "/revolut-app/precache-manifest.afc3edc713f32fd0136b17f32020571d.js",
+    "precache-manifest.e1e3449d7f4ca33793a21603919e6ddb.js": "/revolut-app/precache-manifest.e1e3449d7f4ca33793a21603919e6ddb.js",
     "service-worker.js": "/revolut-app/service-worker.js",
-    "static/css/main.b73309c9.chunk.css.map": "/revolut-app/static/css/main.b73309c9.chunk.css.map",
+    "static/css/main.fea8870e.chunk.css.map": "/revolut-app/static/css/main.fea8870e.chunk.css.map",
     "static/js/2.343d6aed.chunk.js.LICENSE.txt": "/revolut-app/static/js/2.343d6aed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8d99ff33.js",
     "static/js/2.343d6aed.chunk.js",
-    "static/css/main.b73309c9.chunk.css",
-    "static/js/main.c91ebcc1.chunk.js"
+    "static/css/main.fea8870e.chunk.css",
+    "static/js/main.edff0471.chunk.js"
   ]
 }
