@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import { updateWallet, selectFirstWalletError } from '../../app/walletSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 
-const Header = ({ firstAmount, firstCurrency, secondCurrency, currencyRate }) => {
+export const Header = ({ firstAmount, firstCurrency, secondCurrency, currencyRate }) => {
     const firstWalletAmount = useSelector(state => state.wallet[firstCurrency].toFixed(2));
     const secondWalletAmount = useSelector(state => state.wallet[secondCurrency].toFixed(2));
     const error = useSelector(selectFirstWalletError);

@@ -8,7 +8,7 @@ import { currencySigns } from "../../constants";
 import { decimalValidation } from '../../helper'
 
 // Making a generic Wallet component gets really messy, that's why I decided to use two wallets
-const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, currencyRate }) => {
+export const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, currencyRate }) => {
     const dispatch = useDispatch();
     const secondAmount = useSelector(selectSecondAmount);
     const reversedCurrencyRate = (1 / currencyRate).toFixed(2)

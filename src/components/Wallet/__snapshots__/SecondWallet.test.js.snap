@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondWallet should render correctly in "debug" mode 1`] = `
+<div
+  className="wallet-container"
+>
+  <div
+    className="d-flex flex-column justify-content-between h-100"
+  >
+    <div
+      className="d-flex justify-content-between align-items-center"
+    >
+      <Input
+        className="wallet-currency-second"
+        defaultValue="GBP"
+        name="select"
+        onChange={[Function]}
+        type="select"
+      >
+        <option>
+          GBP
+        </option>
+        <option>
+          USD
+        </option>
+        <option>
+          EUR
+        </option>
+      </Input>
+      <Input
+        className="wallet-input-second"
+        disabled={false}
+        min="0"
+        onChange={[Function]}
+        type="number"
+        value=""
+      />
+    </div>
+    <div
+      className="d-flex justify-content-between"
+    >
+      <div
+        className="wallet-pocket"
+      >
+        You Have 
+        50.00
+      </div>
+      <div
+        className="wallet-pocket"
+      >
+        1
+        =
+        Infinity
+      </div>
+    </div>
+  </div>
+</div>
+`;

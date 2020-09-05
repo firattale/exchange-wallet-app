@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExchangeRates should render correctly in "debug" mode 1`] = `
+<div
+  className="exchange-container"
+>
+  <span
+    className="currency"
+  >
+    £
+  </span>
+  1=
+  <span
+    className="currency"
+  >
+    $
+  </span>
+  <span
+    className="currency"
+  />
+</div>
+`;

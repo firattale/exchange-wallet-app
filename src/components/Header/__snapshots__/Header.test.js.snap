@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly in "debug" mode 1`] = `
+<div
+  className="header-container"
+>
+  <Button
+    className="header-button"
+    color="secondary"
+    tag="button"
+    type="button"
+  >
+    Cancel
+  </Button>
+  <ExchangeRates />
+  <Button
+    className="header-button"
+    color="secondary"
+    disabled={false}
+    onClick={[Function]}
+    tag="button"
+    type="button"
+  >
+    Exchange
+  </Button>
+</div>
+`;

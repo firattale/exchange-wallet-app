@@ -7,7 +7,7 @@ import { Input } from 'reactstrap'
 import { currencySigns } from "../../constants";
 import { decimalValidation } from '../../helper'
 // Making a generic Wallet component gets really messy, that's why I decided to use two wallets
-const FirstWallet = ({ currency, sign, secondCurrency, currencyRate, firstAmount }) => {
+export const FirstWallet = ({ currency, sign, secondCurrency, currencyRate, firstAmount }) => {
     const dispatch = useDispatch();
     const walletAmount = useSelector(state => state.wallet[currency].toFixed(2))
     const error = useSelector(selectFirstWalletError);

@@ -13,7 +13,7 @@ import { selectFirstAmount } from '../../app/walletSlice.js';
 import FirstWallet from '../Wallet/FirstWallet.react';
 import SecondWallet from '../Wallet/SecondWallet.react';
 
-const App = () => {
+export const App = () => {
   const firstCurrency = useSelector(selectFirstCurrency);
   const secondCurrency = useSelector(selectSecondCurrency);
   const firstSign = useSelector(selectFirstSign);

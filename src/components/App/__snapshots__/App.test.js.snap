@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correctly in "debug" mode 1`] = `
+<div
+  className="h-100 w-100"
+>
+  <Header
+    currencyRate=""
+    firstAmount=""
+    firstCurrency="GBP"
+    secondCurrency="USD"
+  />
+  <div
+    className="wallets-container"
+  >
+    <FirstWallet
+      currency="GBP"
+      currencyRate=""
+      firstAmount=""
+      secondCurrency="USD"
+      sign="£"
+    />
+    <SecondWallet
+      currency="USD"
+      currencyRate=""
+      firstCurrency="GBP"
+      firstSign="£"
+      secondSign="$"
+    />
+  </div>
+</div>
+`;
