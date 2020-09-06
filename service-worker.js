@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/revolut-app/precache-manifest.e1e3449d7f4ca33793a21603919e6ddb.js"
+  "/revolut-app/precache-manifest.259b4420af6f16737e6a1dd7b210e4ed.js"
 );
 
 self.addEventListener('message', (event) => {
