@@ -6,10 +6,9 @@ import {
     selectSecondCurrency,
     selectCurrencyRate,
     selectFirstSign,
-    selectSecondSign,
-    changeCurrencyRateAsync
+    selectSecondSign
 } from '../../app/exchangeSlice';
-
+import { changeCurrencyRateAsync } from "../../helper"
 export const ExchangeRates = () => {
     const first = useSelector(selectFirstCurrency);
     const second = useSelector(selectSecondCurrency);
@@ -20,7 +19,7 @@ export const ExchangeRates = () => {
 
     useEffect(() => {
         dispatch(changeCurrencyRateAsync({ first, second }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [first, second])
     return (
         <div className="exchange-container">

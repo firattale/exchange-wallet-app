@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { clearAllIntervals } from '../helper'
-import { getRates } from '../api/api'
 
 export const initialState = {
   firstCurrency: "GBP",
@@ -30,14 +28,6 @@ export const exchangeSlice = createSlice({
 });
 
 export const { changeFirstCurrency, changeSecondCurrency, changeCurrencyRate } = exchangeSlice.actions;
-
-export const changeCurrencyRateAsync = (payload) => dispatch => {
-  clearAllIntervals()
-  getRates(payload, dispatch);
-  setInterval(() => {
-    getRates(payload, dispatch);
-  }, 10000);
-};
 
 export const selectFirstCurrency = state => state.exchange.firstCurrency;
 export const selectSecondCurrency = state => state.exchange.secondCurrency;

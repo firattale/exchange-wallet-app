@@ -1,6 +1,8 @@
 import { checkFirstWalletError } from './app/walletSlice';
+import { getRates } from './api/api'
 
 export const clearAllIntervals = () => {
+    // eslint-disable-next-line no-implied-eval
     const highestTimeoutId = setTimeout(";");
     for (var i = 0; i < highestTimeoutId; i++) {
         clearTimeout(i);
@@ -21,4 +23,17 @@ export const decimalValidation = (value, dispatch) => {
 
 }
 
+export const changeCurrencyRateAsync = (payload) => dispatch => {
+    clearAllIntervals()
+    getRates(payload, dispatch);
+    setInterval(() => {
+        getRates(payload, dispatch);
+    }, 10000);
+};
 
+const exportFunctions = {
+    clearAllIntervals,
+    decimalValidation,
+    changeCurrencyRateAsync
+};
+export default exportFunctions;

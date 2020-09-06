@@ -7,8 +7,7 @@ import {
     selectSecondCurrency,
     selectCurrencyRate,
     selectFirstSign,
-    selectSecondSign,
-    changeCurrencyRateAsync
+    selectSecondSign
 } from '../../app/exchangeSlice';
 
 jest.mock("react-redux", () => ({
