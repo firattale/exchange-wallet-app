@@ -31,7 +31,6 @@ exports[`FirstWallet should render correctly in "debug" mode 1`] = `
         <Input
           className="wallet-input"
           disabled={false}
-          id="first-input"
           min="0"
           onChange={[Function]}
           type="number"
@@ -44,6 +43,7 @@ exports[`FirstWallet should render correctly in "debug" mode 1`] = `
         >
           You Have 
           £
+          50.00
         </div>
       </div>
     </div>
