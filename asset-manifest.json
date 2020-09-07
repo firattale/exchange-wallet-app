@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/revolut-app/static/css/main.fea8870e.chunk.css",
-    "main.js": "/revolut-app/static/js/main.142d4708.chunk.js",
-    "main.js.map": "/revolut-app/static/js/main.142d4708.chunk.js.map",
+    "main.js": "/revolut-app/static/js/main.cdb93801.chunk.js",
+    "main.js.map": "/revolut-app/static/js/main.cdb93801.chunk.js.map",
     "runtime-main.js": "/revolut-app/static/js/runtime-main.8d99ff33.js",
     "runtime-main.js.map": "/revolut-app/static/js/runtime-main.8d99ff33.js.map",
     "static/js/2.343d6aed.chunk.js": "/revolut-app/static/js/2.343d6aed.chunk.js",
     "static/js/2.343d6aed.chunk.js.map": "/revolut-app/static/js/2.343d6aed.chunk.js.map",
     "index.html": "/revolut-app/index.html",
-    "precache-manifest.259b4420af6f16737e6a1dd7b210e4ed.js": "/revolut-app/precache-manifest.259b4420af6f16737e6a1dd7b210e4ed.js",
+    "precache-manifest.5af6c3029c14d97ce231c174d769d45f.js": "/revolut-app/precache-manifest.5af6c3029c14d97ce231c174d769d45f.js",
     "service-worker.js": "/revolut-app/service-worker.js",
     "static/css/main.fea8870e.chunk.css.map": "/revolut-app/static/css/main.fea8870e.chunk.css.map",
     "static/js/2.343d6aed.chunk.js.LICENSE.txt": "/revolut-app/static/js/2.343d6aed.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8d99ff33.js",
     "static/js/2.343d6aed.chunk.js",
     "static/css/main.fea8870e.chunk.css",
-    "static/js/main.142d4708.chunk.js"
+    "static/js/main.cdb93801.chunk.js"
   ]
 }
