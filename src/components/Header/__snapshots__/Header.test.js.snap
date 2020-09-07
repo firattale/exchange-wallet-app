@@ -1,27 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render correctly in "debug" mode 1`] = `
-<div
-  className="header-container"
+<Provider
+  store={
+    Object {
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            [Function],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
 >
-  <Button
-    className="header-button"
-    color="secondary"
-    tag="button"
-    type="button"
+  <Header
+    currencyRate=""
+    firstAmount={50}
+    firstCurrency="GBP"
+    secondCurrency="USD"
   >
-    Cancel
-  </Button>
-  <ExchangeRates />
-  <Button
-    className="header-button"
-    color="secondary"
-    disabled={false}
-    onClick={[Function]}
-    tag="button"
-    type="button"
-  >
-    Exchange
-  </Button>
-</div>
+    <div
+      className="header-container"
+    >
+      <Button
+        className="header-button"
+        color="secondary"
+        tag="button"
+        type="button"
+      >
+        <button
+          aria-label={null}
+          className="header-button btn btn-secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          Cancel
+        </button>
+      </Button>
+      <ExchangeRates>
+        <div
+          className="exchange-container"
+        >
+          <span
+            className="currency"
+          >
+            £
+          </span>
+          1=
+          <span
+            className="currency"
+          >
+            $
+          </span>
+          <span
+            className="currency"
+          />
+        </div>
+      </ExchangeRates>
+      <Button
+        className="header-button"
+        color="secondary"
+        data-testid="exchangeButton"
+        disabled={false}
+        onClick={[Function]}
+        tag="button"
+        type="button"
+      >
+        <button
+          aria-label={null}
+          className="header-button btn btn-secondary"
+          data-testid="exchangeButton"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Exchange
+        </button>
+      </Button>
+    </div>
+  </Header>
+</Provider>
 `;

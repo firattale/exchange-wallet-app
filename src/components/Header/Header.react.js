@@ -25,7 +25,7 @@ export const Header = ({ firstAmount, firstCurrency, secondCurrency, currencyRat
         <div className="header-container">
             <Button type="button" className="header-button">Cancel</Button>
             <ExchangeRates />
-            <Button type="button" className="header-button" disabled={isDisabled} onClick={handleExchange} >Exchange</Button>
+            <Button type="button" data-testid="exchangeButton" className="header-button" disabled={isDisabled} onClick={handleExchange} >Exchange</Button>
         </div>
     )
 }

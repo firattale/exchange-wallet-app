@@ -1,5 +1,4 @@
 import { decimalValidation, clearAllIntervals, changeCurrencyRateAsync } from './helper'
-import helpers from './helper';
 
 it('decimalValidation success', () => {
     const dispatch = jest.fn()
@@ -21,5 +20,10 @@ it('clearAllIntervals ', () => {
     clearAllIntervals()
     expect(setTimeout).toHaveBeenCalledTimes(1)
     expect(clearTimeout).toHaveBeenCalledTimes(1)
+});
+it('changeCurrencyRateAsync ', () => {
+    jest.useFakeTimers();
+    changeCurrencyRateAsync("")(jest.fn())
+    expect(setInterval).toHaveBeenCalledTimes(1)
 });
 

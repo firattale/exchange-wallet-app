@@ -1,15 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { FirstWallet } from './FirstWallet.react';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateWallet, selectFirstWalletError } from '../../app/walletSlice.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from "../../app/walletSlice"
 
-
-jest.mock("react-redux", () => ({
-    ...jest.requireActual("react-redux"),
-    useSelector: jest.fn(),
-    useDispatch: jest.fn()
-}));
 describe('FirstWallet', () => {
     const mockAppState = {
         exchange: {
@@ -35,26 +30,52 @@ describe('FirstWallet', () => {
         secondCurrency: "USD",
         currencyRate: ""
     }
-    beforeEach(() => {
-        useSelector.mockImplementation(callback => {
-            return callback(mockAppState);
-        });
-    });
+    const mockStore = createStore(reducer, mockAppState);
+    mockStore.dispatch = jest.fn();
+    const getWrapper = () => mount(
+        <Provider store={mockStore}>
+            <FirstWallet {...mockProps} />
+        </Provider>
+    );
+
     afterEach(() => {
-        useSelector.mockClear();
+        jest.clearAllMocks()
     });
+
+
     it('should render correctly in "debug" mode', () => {
-        const component = shallow(<FirstWallet debug {...mockProps} />);
-
-        expect(component).toMatchSnapshot();
+        const wrapper = getWrapper();
+        expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call useSelector 5 times', () => {
-        shallow(<FirstWallet {...mockProps}  />);
-        expect(useSelector).toHaveBeenCalledTimes(2)
-        expect(useDispatch).toHaveBeenCalledTimes(2)
-        expect(useSelector).toHaveBeenCalledWith(selectFirstWalletError)
-    
+    it('should call dispatch func when  number inputs change', () => {
+        const event = {
+            target: {
+                value: 1.00
+            }
+        }
+        const wrapper = getWrapper();
+        const input = wrapper.find('[data-testid="wallet-input-1"]');
+        input.simulate("change", event);
+        expect(mockStore.dispatch).toHaveBeenCalledTimes(3);
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "error": null }, "type": "wallet/checkFirstWalletError" });
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "firstAmount": 1 }, "type": "wallet/changeFirstAmount" });
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "secondAmount": "0.00" }, "type": "wallet/changeSecondAmount" });
+    });
+    it('should call dispatch func when select inputs change', () => {
+        const event = {
+            target: {
+                value: "USD"
+            }
+        }
+        const wrapper = getWrapper();
+        const input = wrapper.find('[data-testid="wallet-select"]').at(0);
+        input.simulate("change", event);
+        expect(mockStore.dispatch).toHaveBeenCalledTimes(3);
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "first": "USD", "firstSign": "$" }, "type": "exchange/changeFirstCurrency" });
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "firstAmount": "" }, "type": "wallet/changeFirstAmount" });
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "secondAmount": "" }, "type": "wallet/changeSecondAmount" });
+
     });
 
 });

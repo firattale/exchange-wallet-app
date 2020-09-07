@@ -1,22 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExchangeRates should render correctly in "debug" mode 1`] = `
-<div
-  className="exchange-container"
+<Provider
+  store={
+    Object {
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            [Function],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
 >
-  <span
-    className="currency"
-  >
-    £
-  </span>
-  1=
-  <span
-    className="currency"
-  >
-    $
-  </span>
-  <span
-    className="currency"
-  />
-</div>
+  <ExchangeRates>
+    <div
+      className="exchange-container"
+    >
+      <span
+        className="currency"
+      >
+        £
+      </span>
+      1=
+      <span
+        className="currency"
+      >
+        $
+      </span>
+      <span
+        className="currency"
+      />
+    </div>
+  </ExchangeRates>
+</Provider>
 `;

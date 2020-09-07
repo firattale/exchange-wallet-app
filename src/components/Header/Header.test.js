@@ -1,15 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { Header } from './Header.react';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateWallet, selectFirstWalletError } from '../../app/walletSlice.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from "../../app/walletSlice"
 
 
-jest.mock("react-redux", () => ({
-    ...jest.requireActual("react-redux"),
-    useSelector: jest.fn(),
-    useDispatch: jest.fn()
-}));
+
 describe('Header', () => {
     const mockAppState = {
         exchange: {
@@ -34,26 +31,31 @@ describe('Header', () => {
         secondCurrency: "USD",
         currencyRate: ""
     }
-    beforeEach(() => {
-        useSelector.mockImplementation(callback => {
-            return callback(mockAppState);
-        });
-    });
+
+    const mockStore = createStore(reducer, mockAppState);
+    mockStore.dispatch = jest.fn();
+    const getWrapper = () => mount(
+        <Provider store={mockStore}>
+            <Header {...mockProps} />
+        </Provider>
+    );
+
     afterEach(() => {
-        useSelector.mockClear();
+        jest.clearAllMocks()
     });
+
     it('should render correctly in "debug" mode', () => {
-        const component = shallow(<Header debug {...mockProps} />);
-
-        expect(component).toMatchSnapshot();
+        const wrapper = getWrapper();
+        expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call useSelector 5 times', () => {
-        shallow(<Header {...mockProps}  />);
-        expect(useSelector).toHaveBeenCalledTimes(3)
-        expect(useDispatch).toHaveBeenCalledTimes(2)
-        expect(useSelector).toHaveBeenCalledWith(selectFirstWalletError)
-    
+    it('should call dispatch func when  number inputs change', () => {
+
+        const wrapper = getWrapper();
+        const input = wrapper.find('[data-testid="exchangeButton"]').at(1);
+        input.simulate("click");
+        expect(mockStore.dispatch).toHaveBeenCalledTimes(2);
+        expect(mockStore.dispatch).toHaveBeenCalledWith({ "payload": { "firstAmount": 0, "firstWalletType": "GBP", "secondAmount": 40, "secondWalletType": "USD" }, "type": "wallet/updateWallet" });
     });
 
 });

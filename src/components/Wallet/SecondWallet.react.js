@@ -3,7 +3,7 @@ import "./Wallet.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { changeSecondCurrency } from '../../app/exchangeSlice';
-import { changeFirstAmount,changeSecondAmount, selectSecondAmount} from '../../app/walletSlice';
+import { changeFirstAmount, changeSecondAmount, selectSecondAmount } from '../../app/walletSlice';
 import { currencySigns } from "../../constants";
 import { decimalValidation } from '../../helper'
 
@@ -27,12 +27,12 @@ export const SecondWallet = ({ firstSign, firstCurrency, currency, secondSign, c
     return <div className="wallet-container">
         <div className="d-flex flex-column justify-content-between h-100">
             <div className="d-flex justify-content-between align-items-center">
-                <Input type="select" name="select" className="wallet-currency-second" defaultValue={currency} onChange={e => handleCurrencyChange(e.target.value)}>
+                <Input type="select" data-testid="wallet-select" name="select" className="wallet-currency-second" defaultValue={currency} onChange={e => handleCurrencyChange(e.target.value)}>
                     <option>GBP</option>
                     <option>USD</option>
                     <option>EUR</option>
                 </Input>
-                <Input type="number" className="wallet-input-second" value={secondAmount} onChange={e => handleChange(e.target.value)} disabled={currency === firstCurrency} min="0" />
+                <input type="number" data-testid="wallet-input-2" className="wallet-input-second" value={secondAmount} onChange={e => handleChange(e.target.value)} disabled={currency === firstCurrency} min="0" />
 
             </div>
             <div className="d-flex justify-content-between">

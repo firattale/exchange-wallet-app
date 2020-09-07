@@ -1,58 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SecondWallet should render correctly in "debug" mode 1`] = `
-<div
-  className="wallet-container"
+<Provider
+  store={
+    Object {
+      "dispatch": [MockFunction],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
 >
-  <div
-    className="d-flex flex-column justify-content-between h-100"
+  <SecondWallet
+    currency="GBP"
+    currencyRate=""
+    firstAmount={50}
+    secondCurrency="USD"
+    sign="£"
   >
     <div
-      className="d-flex justify-content-between align-items-center"
-    >
-      <Input
-        className="wallet-currency-second"
-        defaultValue="GBP"
-        name="select"
-        onChange={[Function]}
-        type="select"
-      >
-        <option>
-          GBP
-        </option>
-        <option>
-          USD
-        </option>
-        <option>
-          EUR
-        </option>
-      </Input>
-      <Input
-        className="wallet-input-second"
-        disabled={false}
-        min="0"
-        onChange={[Function]}
-        type="number"
-        value=""
-      />
-    </div>
-    <div
-      className="d-flex justify-content-between"
+      className="wallet-container"
     >
       <div
-        className="wallet-pocket"
+        className="d-flex flex-column justify-content-between h-100"
       >
-        You Have 
-        50.00
-      </div>
-      <div
-        className="wallet-pocket"
-      >
-        1
-        =
-        Infinity
+        <div
+          className="d-flex justify-content-between align-items-center"
+        >
+          <Input
+            className="wallet-currency-second"
+            data-testid="wallet-select"
+            defaultValue="GBP"
+            name="select"
+            onChange={[Function]}
+            type="select"
+          >
+            <select
+              className="wallet-currency-second form-control"
+              data-testid="wallet-select"
+              defaultValue="GBP"
+              name="select"
+              onChange={[Function]}
+            >
+              <option>
+                GBP
+              </option>
+              <option>
+                USD
+              </option>
+              <option>
+                EUR
+              </option>
+            </select>
+          </Input>
+          <input
+            className="wallet-input-second"
+            data-testid="wallet-input-2"
+            disabled={false}
+            min="0"
+            onChange={[Function]}
+            type="number"
+            value=""
+          />
+        </div>
+        <div
+          className="d-flex justify-content-between"
+        >
+          <div
+            className="wallet-pocket"
+          >
+            You Have 
+            50.00
+          </div>
+          <div
+            className="wallet-pocket"
+          >
+            1
+            =
+            Infinity
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </SecondWallet>
+</Provider>
 `;

@@ -1,20 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { ExchangeRates } from './ExchangeRates.react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-    selectFirstCurrency,
-    selectSecondCurrency,
-    selectCurrencyRate,
-    selectFirstSign,
-    selectSecondSign
-} from '../../app/exchangeSlice';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from "../../app/exchangeSlice"
 
-jest.mock("react-redux", () => ({
-    ...jest.requireActual("react-redux"),
-    useSelector: jest.fn(),
-    useDispatch: jest.fn()
-}));
 describe('ExchangeRates', () => {
     const mockAppState = {
         exchange: {
@@ -33,29 +23,20 @@ describe('ExchangeRates', () => {
             firstWalletError: null
         }
     }
-    beforeEach(() => {
-        useSelector.mockImplementation(callback => {
-            return callback(mockAppState);
-        });
-    });
+    const mockStore = createStore(reducer, mockAppState);
+    mockStore.dispatch = jest.fn();
+    const getWrapper = () => mount(
+        <Provider store={mockStore}>
+            <ExchangeRates />
+        </Provider>
+    );
+
     afterEach(() => {
-        useSelector.mockClear();
+        jest.clearAllMocks()
     });
     it('should render correctly in "debug" mode', () => {
-        const component = shallow(<ExchangeRates debug />);
-
-        expect(component).toMatchSnapshot();
+        const wrapper = getWrapper();
+        expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call useSelector 5 times', () => {
-        shallow(<ExchangeRates debug />);
-        expect(useSelector).toHaveBeenCalledTimes(5)
-        expect(useDispatch).toHaveBeenCalledTimes(2)
-        expect(useSelector).toHaveBeenCalledWith(selectFirstCurrency)
-        expect(useSelector).toHaveBeenCalledWith(selectSecondCurrency)
-        expect(useSelector).toHaveBeenCalledWith(selectFirstSign)
-        expect(useSelector).toHaveBeenCalledWith(selectSecondSign)
-        expect(useSelector).toHaveBeenCalledWith(selectCurrencyRate)
-    });
- 
 });
