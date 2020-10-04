@@ -10,16 +10,18 @@ export const clearAllIntervals = () => {
 }
 
 export const inputValidation = (value, dispatch) => {
-    if (!Number.isInteger(Number(value))) {
+    const num = Number(value)
+    const isDecimal = !Number.isInteger(num)
+    if (isDecimal && num > 0) {
         let count = value.split(".")[1].length || 0;
         if (count < 3) {
             dispatch(checkFirstWalletError({ error: null }))
         }
-
         else {
             dispatch(checkFirstWalletError({ error: "Your input must have only two digits after comma" }))
         }
-    } else if (Number(value) < 0) {
+    }
+    else if (num < 0) {
         dispatch(checkFirstWalletError({ error: "Your input must be a positive number" }))
     }
     else {
