@@ -20,7 +20,7 @@ export const FirstWallet = ({ currency, sign, secondCurrency, currencyRate, firs
 
     const handleChange = (value) => {
         decimalValidation(value, dispatch)
-        // negativeValidation(value, dispatch)
+        negativeValidation(value, dispatch)
         dispatch(changeFirstAmount({ firstAmount: value }))
         dispatch(changeSecondAmount({ secondAmount: (value * currencyRate).toFixed(2) }))
     }

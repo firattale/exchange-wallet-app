@@ -20,16 +20,14 @@ export const decimalValidation = (value, dispatch) => {
     } else {
         dispatch(checkFirstWalletError({ error: null }))
     }
-
 }
 
 export const negativeValidation = (value, dispatch) => {
-    if (!Number.isInteger(Number(value) < 0)) {
+    if (Number(value) < 0) {
         dispatch(checkFirstWalletError({ error: "Your input must be a positive number" }))
     } else {
         dispatch(checkFirstWalletError({ error: null }))
     }
-
 }
 
 export const changeCurrencyRateAsync = (payload) => dispatch => {
