@@ -14,7 +14,6 @@
 
 .wallet-currency,
 .wallet-currency:focus {
-    -webkit-appearance: none;
     color: white;
     font-size: 50px;
     background-color: #387ad7;
@@ -23,7 +22,6 @@
 
 .wallet-currency-second,
 .wallet-currency-second:focus {
-    -webkit-appearance: none;
     color: white;
     font-size: 50px;
     background-color: #3762c7;
