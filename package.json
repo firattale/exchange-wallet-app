@@ -1,8 +1,8 @@
 {
-  "name": "revolut",
+  "name": "currency exchange wallet",
   "version": "0.1.0",
   "private": true,
-  "homepage": " https://firattale.github.io/revolut-app/",
+  "homepage": " https://firattale.github.io/exchange-wallet-app/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
