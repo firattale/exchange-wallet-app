@@ -8,7 +8,7 @@ import {
     selectFirstSign,
     selectSecondSign
 } from '../../app/exchangeSlice';
-import { changeCurrencyRateAsync } from "../../helper"
+import { changeCurrencyRateAsync } from "../../helper/helper"
 export const ExchangeRates = () => {
     const first = useSelector(selectFirstCurrency);
     const second = useSelector(selectSecondCurrency);

@@ -1,18 +1,18 @@
-import { decimalValidation, clearAllIntervals, changeCurrencyRateAsync } from './helper'
+import { inputValidation, clearAllIntervals, changeCurrencyRateAsync } from './helper'
 
-it('decimalValidation success', () => {
+it('inputValidation success', () => {
     const dispatch = jest.fn()
-    decimalValidation("5", dispatch)
+    inputValidation("5", dispatch)
     expect(dispatch).toHaveBeenCalledWith({ "payload": { "error": null }, "type": "wallet/checkFirstWalletError" })
 });
-it('decimalValidation success', () => {
+it('inputValidation success', () => {
     const dispatch = jest.fn()
-    decimalValidation("5.00", dispatch)
+    inputValidation("5.00", dispatch)
     expect(dispatch).toHaveBeenCalledWith({ "payload": { "error": null }, "type": "wallet/checkFirstWalletError" })
 });
-it('decimalValidation failure', () => {
+it('inputValidation failure', () => {
     const dispatch = jest.fn()
-    decimalValidation("5.00111", dispatch)
+    inputValidation("5.00111", dispatch)
     expect(dispatch).toHaveBeenCalledWith({ "payload": { "error": "Your input must have only two digits after comma" }, "type": "wallet/checkFirstWalletError" })
 });
 it('clearAllIntervals ', () => {

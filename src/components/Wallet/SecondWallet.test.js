@@ -57,7 +57,7 @@ describe('SecondWallet', () => {
         const wrapper = getWrapper();
         const input = wrapper.find('[data-testid="wallet-input-2"]');
         input.simulate("change", event);
-        expect(mockStore.dispatch).toHaveBeenCalledTimes(4);
+        expect(mockStore.dispatch).toHaveBeenCalledTimes(3);
         expect(mockStore.dispatch).toHaveBeenCalledWith({"payload": {"error": null}, "type": "wallet/checkFirstWalletError"});
         expect(mockStore.dispatch).toHaveBeenCalledWith({"payload": {"firstAmount": "Infinity"}, "type": "wallet/changeFirstAmount"});
         expect(mockStore.dispatch).toHaveBeenCalledWith({"payload": {"secondAmount": 1}, "type": "wallet/changeSecondAmount"});

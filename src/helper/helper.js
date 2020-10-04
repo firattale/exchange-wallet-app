@@ -1,5 +1,5 @@
-import { checkFirstWalletError } from './app/walletSlice';
-import { getRates } from './api/api'
+import { checkFirstWalletError } from '../app/walletSlice';
+import { getRates } from '../api/api'
 
 export const clearAllIntervals = () => {
     // eslint-disable-next-line no-implied-eval
@@ -9,26 +9,24 @@ export const clearAllIntervals = () => {
     }
 }
 
-export const decimalValidation = (value, dispatch) => {
+export const inputValidation = (value, dispatch) => {
     if (!Number.isInteger(Number(value))) {
         let count = value.split(".")[1].length || 0;
         if (count < 3) {
             dispatch(checkFirstWalletError({ error: null }))
-        } else {
+        }
+
+        else {
             dispatch(checkFirstWalletError({ error: "Your input must have only two digits after comma" }))
         }
-    } else {
+    } else if (Number(value) < 0) {
+        dispatch(checkFirstWalletError({ error: "Your input must be a positive number" }))
+    }
+    else {
         dispatch(checkFirstWalletError({ error: null }))
     }
 }
 
-export const negativeValidation = (value, dispatch) => {
-    if (Number(value) < 0) {
-        dispatch(checkFirstWalletError({ error: "Your input must be a positive number" }))
-    } else {
-        dispatch(checkFirstWalletError({ error: null }))
-    }
-}
 
 export const changeCurrencyRateAsync = (payload) => dispatch => {
     clearAllIntervals()
@@ -40,8 +38,7 @@ export const changeCurrencyRateAsync = (payload) => dispatch => {
 
 const exportFunctions = {
     clearAllIntervals,
-    decimalValidation,
-    negativeValidation,
+    inputValidation,
     changeCurrencyRateAsync
 };
 export default exportFunctions;
