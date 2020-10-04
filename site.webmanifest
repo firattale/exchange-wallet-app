@@ -1,6 +1,6 @@
 {
-    "name": "Revolut App Exchange Screen",
-    "short_name": "revolut",
+    "name": "Currency Exchange Wallet",
+    "short_name": "exchange wallet",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
