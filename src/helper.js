@@ -23,6 +23,15 @@ export const decimalValidation = (value, dispatch) => {
 
 }
 
+export const negativeValidation = (value, dispatch) => {
+    if (!Number.isInteger(Number(value) < 0)) {
+        dispatch(checkFirstWalletError({ error: "Your input must be a positive number" }))
+    } else {
+        dispatch(checkFirstWalletError({ error: null }))
+    }
+
+}
+
 export const changeCurrencyRateAsync = (payload) => dispatch => {
     clearAllIntervals()
     getRates(payload, dispatch);
@@ -34,6 +43,7 @@ export const changeCurrencyRateAsync = (payload) => dispatch => {
 const exportFunctions = {
     clearAllIntervals,
     decimalValidation,
+    negativeValidation,
     changeCurrencyRateAsync
 };
 export default exportFunctions;

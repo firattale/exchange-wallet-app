@@ -5,7 +5,7 @@ import { changeFirstCurrency } from '../../app/exchangeSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from 'reactstrap'
 import { currencySigns } from "../../constants";
-import { decimalValidation } from '../../helper';
+import { decimalValidation, negativeValidation } from '../../helper';
 
 // Making a generic Wallet component gets really messy, that's why I decided to use two wallets
 export const FirstWallet = ({ currency, sign, secondCurrency, currencyRate, firstAmount }) => {
@@ -20,6 +20,7 @@ export const FirstWallet = ({ currency, sign, secondCurrency, currencyRate, firs
 
     const handleChange = (value) => {
         decimalValidation(value, dispatch)
+        // negativeValidation(value, dispatch)
         dispatch(changeFirstAmount({ firstAmount: value }))
         dispatch(changeSecondAmount({ secondAmount: (value * currencyRate).toFixed(2) }))
     }
