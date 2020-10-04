@@ -20,7 +20,7 @@ describe('FirstWallet', () => {
             EUR: 60.00,
             firstAmount: "",
             secondAmount: "",
-            firstWalletError: null
+            firstWalletError: "error"
         }
     }
     const mockProps = {

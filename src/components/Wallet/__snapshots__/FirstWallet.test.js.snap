@@ -64,6 +64,11 @@ exports[`FirstWallet should render correctly in "debug" mode 1`] = `
             value={50}
           />
         </div>
+        <p
+          className="wallet-error-message"
+        >
+          error
+        </p>
         <div>
           <div
             className="wallet-pocket"
