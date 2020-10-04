@@ -1,5 +1,4 @@
-# Revolut
-Revolut Exchange Screen
+# Exchange Wallet App
 
 Open your terminal and write these commands.
 
