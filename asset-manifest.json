@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/exchange-wallet-app/static/css/main.0ac254c7.chunk.css",
-    "main.js": "/exchange-wallet-app/static/js/main.354f57cd.chunk.js",
-    "main.js.map": "/exchange-wallet-app/static/js/main.354f57cd.chunk.js.map",
+    "main.js": "/exchange-wallet-app/static/js/main.aeb08979.chunk.js",
+    "main.js.map": "/exchange-wallet-app/static/js/main.aeb08979.chunk.js.map",
     "runtime-main.js": "/exchange-wallet-app/static/js/runtime-main.4fa83317.js",
     "runtime-main.js.map": "/exchange-wallet-app/static/js/runtime-main.4fa83317.js.map",
     "static/js/2.7e2d0087.chunk.js": "/exchange-wallet-app/static/js/2.7e2d0087.chunk.js",
     "static/js/2.7e2d0087.chunk.js.map": "/exchange-wallet-app/static/js/2.7e2d0087.chunk.js.map",
     "index.html": "/exchange-wallet-app/index.html",
-    "precache-manifest.cfafea0413fb5feea5277c92f2541514.js": "/exchange-wallet-app/precache-manifest.cfafea0413fb5feea5277c92f2541514.js",
+    "precache-manifest.8629db1af7a4ee3ae111ed5dd2e50a25.js": "/exchange-wallet-app/precache-manifest.8629db1af7a4ee3ae111ed5dd2e50a25.js",
     "service-worker.js": "/exchange-wallet-app/service-worker.js",
     "static/css/main.0ac254c7.chunk.css.map": "/exchange-wallet-app/static/css/main.0ac254c7.chunk.css.map",
     "static/js/2.7e2d0087.chunk.js.LICENSE.txt": "/exchange-wallet-app/static/js/2.7e2d0087.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4fa83317.js",
     "static/js/2.7e2d0087.chunk.js",
     "static/css/main.0ac254c7.chunk.css",
-    "static/js/main.354f57cd.chunk.js"
+    "static/js/main.aeb08979.chunk.js"
   ]
 }
